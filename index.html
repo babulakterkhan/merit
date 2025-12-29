@@ -36,14 +36,16 @@ button{cursor:pointer;font-weight:bold;}
 
 <body>
 
-<!-- ================== Header With Logo ================== -->
+<!-- ================== Header ================== -->
 <div class="header">
 <img src="logo_bonogram.png" alt="School Logo"> 
-   <h2>বনগ্রাম ডাঃ রমজান আলী উচ্চ বিদ্যালয়</h2>
-  <h4>ANNUAL EXAM 2025 | CLASS: 8 | SECTION: A, B</h4>
+<h2>বনগ্রাম ডাঃ রমজান আলী উচ্চ বিদ্যালয়</h2>
+<h4>শাহজাদপুর, সিরাজগঞ্জ</h4>
+<h4>ANNUAL EXAM 2025 | CLASS: 8 | SECTION: A, B</h4>
+<h2><u>মেধাক্রম</u></h2>
 </div>
 
-<!-- =================== Search Area ====================== -->
+<!-- ================= Search UI ================= -->
 <div class="search-box">
   <select id="sectionSelect">
     <option value="">-- Select Section --</option>
@@ -59,604 +61,75 @@ button{cursor:pointer;font-weight:bold;}
 <div id="resultContainer"></div>
 
 
-<!-- ================= Students JSON ===================== -->
+
+<!-- ============== Students JSON ================= -->
 <script>
 const students = [
- {
-    "Merit": 1,
-    "Name": "MD. RASADUL ISLAM",
-    "Roll": 3,
-    "Class": "EIGHT (A)",
-    "TotalScore": 512,
-    "GPA": "A- (3.93)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 2,
-    "Name": "MD. SAJIDUL ISLAM SOWAD",
-    "Roll": 1,
-    "Class": "EIGHT (A)",
-    "TotalScore": 486,
-    "GPA": "A- (3.71)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 3,
-    "Name": "MD. RIFAT HOSSEN",
-    "Roll": 4,
-    "Class": "EIGHT (A)",
-    "TotalScore": 463,
-    "GPA": "B (3.43)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 4,
-    "Name": "MD. NAHID ISLAM NIROB",
-    "Roll": 2,
-    "Class": "EIGHT (A)",
-    "TotalScore": 437,
-    "GPA": "B (3.21)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 5,
-    "Name": "MD. ALIF MOLLA",
-    "Roll": 5,
-    "Class": "EIGHT (A)",
-    "TotalScore": 413,
-    "GPA": "B (3.14)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 6,
-    "Name": "MD. ABDULLAH HOSSEN",
-    "Roll": 10,
-    "Class": "EIGHT (A)",
-    "TotalScore": 411,
-    "GPA": "B (3.14)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 7,
-    "Name": "MD. MAHFUJUR RAHMAN",
-    "Roll": 9,
-    "Class": "EIGHT (A)",
-    "TotalScore": 404,
-    "GPA": "B (3.0)",
-    "Failed": 0,
-    "Group": "-"
-  },
-  {
-    "Merit": 8,
-    "Name": "MD. RONY HOSSEN",
-    "Roll": 8,
-    "Class": "EIGHT (A)",
-    "TotalScore": 366,
-    "GPA": "F (0.0)",
-    "Failed": 1,
-    "Group": "-"
-  },
-  {
-    "Merit": 9,
-    "Name": "MD. NAHID ISLAM",
-    "Roll": 11,
-    "Class": "EIGHT (A)",
-    "TotalScore": 357,
-    "GPA": "F (0.0)",
-    "Failed": 1,
-    "Group": "-"
-  },
-  {
-    "Merit": 10,
-    "Name": "MD. SOBUJ MIA",
-    "Roll": 6,
-    "Class": "EIGHT (A)",
-    "TotalScore": 343,
-    "GPA": "F (0.0)",
-    "Failed": 2,
-    "Group": "-"
-  },
-  {
-    "Merit": 11,
-    "Name": "MD. AKASH MAHMUD",
-    "Roll": 12,
-    "Class": "EIGHT (A)",
-    "TotalScore": 329,
-    "GPA": "F (0.0)",
-    "Failed": 1,
-    "Group": "-"
-  },
-  {
-    "Merit": 12,
-    "Name": "MD. SHIHAB HOSSEN",
-    "Roll": 20,
-    "Class": "EIGHT (A)",
-    "TotalScore": 319,
-    "GPA": "F (0.0)",
-    "Failed": 2,
-    "Group": "-"
-  },
-  {
-    "Merit": 13,
-    "Name": "MD. SHAMSUL ALAM",
-    "Roll": 23,
-    "Class": "EIGHT (A)",
-    "TotalScore": 285,
-    "GPA": "F (0.0)",
-    "Failed": 3,
-    "Group": "-"
-  },
-  {
-    "Merit": 14,
-    "Name": "MD. MOSTAK AHMED",
-    "Roll": 15,
-    "Class": "EIGHT (A)",
-    "TotalScore": 279,
-    "GPA": "F (0.0)",
-    "Failed": 3,
-    "Group": "-"
-  },
-  {
-    "Merit": 15,
-    "Name": "MD. NAJMUL HOSSEN",
-    "Roll": 13,
-    "Class": "EIGHT (A)",
-    "TotalScore": 257,
-    "GPA": "F (0.0)",
-    "Failed": 4,
-    "Group": "-"
-  },
-  {
-    "Merit": 16,
-    "Name": "MD. SHAKIB HASAN",
-    "Roll": 22,
-    "Class": "EIGHT (A)",
-    "TotalScore": 245,
-    "GPA": "F (0.0)",
-    "Failed": 4,
-    "Group": "-"
-  },
-  {
-    "Merit": 17,
-    "Name": "MD. JIHAD ALI",
-    "Roll": 28,
-    "Class": "EIGHT (A)",
-    "TotalScore": 225,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 18,
-    "Name": "MD. KAMRIL ISLAM",
-    "Roll": 19,
-    "Class": "EIGHT (A)",
-    "TotalScore": 219,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 19,
-    "Name": "MD. SABBIR HOSSEN",
-    "Roll": 29,
-    "Class": "EIGHT (A)",
-    "TotalScore": 199,
-    "GPA": "F (0.0)",
-    "Failed": 6,
-    "Group": "-"
-  },
-  {
-    "Merit": 20,
-    "Name": "MD. JAFOR ALI",
-    "Roll": 14,
-    "Class": "EIGHT (A)",
-    "TotalScore": 197,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 21,
-    "Name": "MD. SAGOR ALI",
-    "Roll": 25,
-    "Class": "EIGHT (A)",
-    "TotalScore": 191,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 22,
-    "Name": "MD RIYAD HOSSAIN",
-    "Roll": 24,
-    "Class": "EIGHT (A)",
-    "TotalScore": 182,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 23,
-    "Name": "MD. HABIB HOSSEN",
-    "Roll": 21,
-    "Class": "EIGHT (A)",
-    "TotalScore": 167,
-    "GPA": "F (0.0)",
-    "Failed": 6,
-    "Group": "-"
-  },
-  {
-    "Merit": 1,
-    "Name": "MST. HUMAIRA KHATUN",
-    "Roll": "1",
-    "Class": "EIGHT (B)",
-    "TotalScore": "551",
-    "GPA": "A (4.29)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 2,
-    "Name": "MST. BOBY PARVIN",
-    "Roll": "3",
-    "Class": "EIGHT (B)",
-    "TotalScore": "538",
-    "GPA": "A (4.21)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 3,
-    "Name": "MST. NURIA PARVIN",
-    "Roll": "2",
-    "Class": "EIGHT (B)",
-    "TotalScore": "530",
-    "GPA": "A (4.21)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 4,
-    "Name": "MST.JEMI KHATUN",
-    "Roll": "4",
-    "Class": "EIGHT (B)",
-    "TotalScore": "537",
-    "GPA": "A (4.07)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 5,
-    "Name": "MST. MITU KHATUN",
-    "Roll": "8",
-    "Class": "EIGHT (B)",
-    "TotalScore": "524",
-    "GPA": "A (4.07)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 6,
-    "Name": "MST. FATIMA TUJ JOHORA",
-    "Roll": "5",
-    "Class": "EIGHT (B)",
-    "TotalScore": "500",
-    "GPA": "A- (3.86)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 7,
-    "Name": "MST. ALMINA KHATUN",
-    "Roll": "9",
-    "Class": "EIGHT (B)",
-    "TotalScore": "478",
-    "GPA": "A- (3.71)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 8,
-    "Name": "MST. JIEASMIN PARVIN",
-    "Roll": "7",
-    "Class": "EIGHT (B)",
-    "TotalScore": "477",
-    "GPA": "A- (3.64)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 9,
-    "Name": "MST. AMBIYA KHATUN",
-    "Roll": "46",
-    "Class": "EIGHT (B)",
-    "TotalScore": "462",
-    "GPA": "A- (3.5)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 10,
-    "Name": "MST. ELMA KHATUN",
-    "Roll": "10",
-    "Class": "EIGHT (B)",
-    "TotalScore": "450",
-    "GPA": "B (3.43)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 11,
-    "Name": "MST. KHUSIYARA KHATUN",
-    "Roll": "14",
-    "Class": "EIGHT (B)",
-    "TotalScore": "448",
-    "GPA": "B (3.36)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 12,
-    "Name": "MST. RABEA KHATUN",
-    "Roll": "12",
-    "Class": "EIGHT (B)",
-    "TotalScore": "454",
-    "GPA": "B (3.21)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 13,
-    "Name": "MST. SANJIDA ISLAM ROSNI",
-    "Roll": "13",
-    "Class": "EIGHT (B)",
-    "TotalScore": "447",
-    "GPA": "B (3.21)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 14,
-    "Name": "MST. MUNNI KHATUN",
-    "Roll": "11",
-    "Class": "EIGHT (B)",
-    "TotalScore": "431",
-    "GPA": "B (3.21)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 15,
-    "Name": "MST. BITHI KHATUN",
-    "Roll": "29",
-    "Class": "EIGHT (B)",
-    "TotalScore": "426",
-    "GPA": "C (2.93)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 16,
-    "Name": "MST. SANJIDA KHATUN",
-    "Roll": "33",
-    "Class": "EIGHT (B)",
-    "TotalScore": "368",
-    "GPA": "C (2.64)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 17,
-    "Name": "MST. SHATI KHATUN",
-    "Roll": "34",
-    "Class": "EIGHT (B)",
-    "TotalScore": "365",
-    "GPA": "C (2.64)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 8,
-    "Name": "MST. JIM KHATUN",
-    "Roll": "6",
-    "Class": "EIGHT (B)",
-    "TotalScore": "489",
-    "GPA": "A- (3.64)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 10,
-    "Name": "TASNIM ZARIN",
-    "Roll": "15",
-    "Class": "EIGHT (B)",
-    "TotalScore": "470",
-    "GPA": "A- (3.5)",
-    "Failed": "0",
-    "Group": "-"
-  },
-  {
-    "Merit": 20,
-    "Name": "MST. JAKIYA KHATUN",
-    "Roll": "16",
-    "Class": "EIGHT (B)",
-    "TotalScore": "395",
-    "GPA": "F (0.0)",
-    "Failed": "1",
-    "Group": "-"
-  },
-  {
-    "Merit": 21,
-    "Name": "MST. NARGIS KHATUN",
-    "Roll": "17",
-    "Class": "EIGHT (B)",
-    "TotalScore": "393",
-    "GPA": "F (0.0)",
-    "Failed": "1",
-    "Group": "-"
-  },
-  {
-    "Merit": 22,
-    "Name": "MST. ANTORA KHATUN",
-    "Roll": "30",
-    "Class": "EIGHT (B)",
-    "TotalScore": "369",
-    "GPA": "F (0.0)",
-    "Failed": "1",
-    "Group": "-"
-  },
-  {
-    "Merit": 23,
-    "Name": "MST. SAMIA SULTANA",
-    "Roll": "19",
-    "Class": "EIGHT (B)",
-    "TotalScore": "350",
-    "GPA": "F (0.0)",
-    "Failed": "1",
-    "Group": "-"
-  },
-  {
-    "Merit": 24,
-    "Name": "MST. SADIYA KHATUN",
-    "Roll": "24",
-    "Class": "EIGHT (B)",
-    "TotalScore": "350",
-    "GPA": "F (0.0)",
-    "Failed": "1",
-    "Group": "-"
-  },
-  {
-    "Merit": 25,
-    "Name": "MST. JAKIA SULTANA",
-    "Roll": "21",
-    "Class": "EIGHT (B)",
-    "TotalScore": "344",
-    "GPA": "F (0.0)",
-    "Failed": "1",
-    "Group": "-"
-  },
-  {
-    "Merit": 26,
-    "Name": "MST. LUCKY KHATUN",
-    "Roll": "18",
-    "Class": "EIGHT (B)",
-    "TotalScore": "325",
-    "GPA": "F (0.0)",
-    "Failed": "2",
-    "Group": "-"
-  },
-  {
-    "Merit": 27,
-    "Name": "NUSRAT SARKER IFTY",
-    "Roll": "27",
-    "Class": "EIGHT (B)",
-    "TotalScore": "318",
-    "GPA": "F (0.0)",
-    "Failed": "2",
-    "Group": "-"
-  },
-  {
-    "Merit": 28,
-    "Name": "MST. JIM KHATUN",
-    "Roll": "28",
-    "Class": "EIGHT (B)",
-    "TotalScore": "308",
-    "GPA": "F (0.0)",
-    "Failed": "2",
-    "Group": "-"
-  },
-  {
-    "Merit": 29,
-    "Name": "MST. SADIYA KHATUN",
-    "Roll": "25",
-    "Class": "EIGHT (B)",
-    "TotalScore": "299",
-    "GPA": "F (0.0)",
-    "Failed": "2",
-    "Group": "-"
-  },
-  {
-    "Merit": 30,
-    "Name": "MST. JULIYA KHATUN",
-    "Roll": 26,
-    "Class": "EIGHT (B)",
-    "TotalScore": 263,
-    "GPA": "F (0.0)",
-    "Failed": 3,
-    "Group": "-"
-  },
-  {
-    "Merit": 31,
-    "Name": "MST. SADIYA KHATUN",
-    "Roll": 42,
-    "Class": "EIGHT (B)",
-    "TotalScore": 226,
-    "GPA": "F (0.0)",
-    "Failed": 4,
-    "Group": "-"
-  },
-  {
-    "Merit": 32,
-    "Name": "MST. KOBITA KHATUN",
-    "Roll": 39,
-    "Class": "EIGHT (B)",
-    "TotalScore": 183,
-    "GPA": "F (0.0)",
-    "Failed": 4,
-    "Group": "-"
-  },
-  {
-    "Merit": 33,
-    "Name": "MST. KHADIJA KHATUN",
-    "Roll": 37,
-    "Class": "EIGHT (B)",
-    "TotalScore": 182,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 34,
-    "Name": "MST. SUBARNA PARVIN",
-    "Roll": 36,
-    "Class": "EIGHT (B)",
-    "TotalScore": 175,
-    "GPA": "F (0.0)",
-    "Failed": 6,
-    "Group": "-"
-  },
-  {
-    "Merit": 35,
-    "Name": "MST SATHI KHATUN",
-    "Roll": 45,
-    "Class": "EIGHT (B)",
-    "TotalScore": 165,
-    "GPA": "F (0.0)",
-    "Failed": 5,
-    "Group": "-"
-  },
-  {
-    "Merit": 36,
-    "Name": "MST. ITI KHATUN",
-    "Roll": 38,
-    "Class": "EIGHT (B)",
-    "TotalScore": 131,
-    "GPA": "F (0.0)",
-    "Failed": 6,
-    "Group": "-"
-  },
+  { "Merit":1,"Name":"MST. HUMAIRA KHATUN","Roll":1,"Class":"EIGHT (B)","TotalScore":551,"GPA":"A (4.29)","Failed":0,"Group":"-" },
+  { "Merit":2,"Name":"MST. BOBY PARVIN","Roll":3,"Class":"EIGHT (B)","TotalScore":538,"GPA":"A (4.21)","Failed":0,"Group":"-" },
+  { "Merit":3,"Name":"MST. NURIA PARVIN","Roll":2,"Class":"EIGHT (B)","TotalScore":530,"GPA":"A (4.21)","Failed":0,"Group":"-" },
+  { "Merit":4,"Name":"MST.JEMI KHATUN","Roll":4,"Class":"EIGHT (B)","TotalScore":537,"GPA":"A (4.07)","Failed":0,"Group":"-" },
+  { "Merit":5,"Name":"MST. MITU KHATUN","Roll":8,"Class":"EIGHT (B)","TotalScore":524,"GPA":"A (4.07)","Failed":0,"Group":"-" },
+  { "Merit":6,"Name":"MST. FATIMA TUJ JOHORA","Roll":5,"Class":"EIGHT (B)","TotalScore":500,"GPA":"A- (3.86)","Failed":0,"Group":"-" },
+  { "Merit":7,"Name":"MST. ALMINA KHATUN","Roll":9,"Class":"EIGHT (B)","TotalScore":478,"GPA":"A- (3.71)","Failed":0,"Group":"-" },
+  { "Merit":8,"Name":"MST. JIM KHATUN","Roll":6,"Class":"EIGHT (B)","TotalScore":489,"GPA":"A- (3.64)","Failed":0,"Group":"-" },
+  { "Merit":9,"Name":"MST. JIEASMIN PARVIN","Roll":7,"Class":"EIGHT (B)","TotalScore":477,"GPA":"A- (3.64)","Failed":0,"Group":"-" },
+  { "Merit":10,"Name":"TASNIM ZARIN","Roll":15,"Class":"EIGHT (B)","TotalScore":470,"GPA":"A- (3.5)","Failed":0,"Group":"-" },
+  { "Merit":11,"Name":"MST. AMBIYA KHATUN","Roll":46,"Class":"EIGHT (B)","TotalScore":462,"GPA":"A- (3.5)","Failed":0,"Group":"-" },
+  { "Merit":12,"Name":"MST. ELMA KHATUN","Roll":10,"Class":"EIGHT (B)","TotalScore":450,"GPA":"B (3.43)","Failed":0,"Group":"-" },
+  { "Merit":13,"Name":"MST. KHUSIYARA KHATUN","Roll":14,"Class":"EIGHT (B)","TotalScore":448,"GPA":"B (3.36)","Failed":0,"Group":"-" },
+  { "Merit":14,"Name":"MST. RABEA KHATUN","Roll":12,"Class":"EIGHT (B)","TotalScore":454,"GPA":"B (3.21)","Failed":0,"Group":"-" },
+  { "Merit":15,"Name":"MST. SANJIDA ISLAM ROSNI","Roll":13,"Class":"EIGHT (B)","TotalScore":447,"GPA":"B (3.21)","Failed":0,"Group":"-" },
+  { "Merit":16,"Name":"MST. MUNNI KHATUN","Roll":11,"Class":"EIGHT (B)","TotalScore":431,"GPA":"B (3.21)","Failed":0,"Group":"-" },
+  { "Merit":17,"Name":"MST. BITHI KHATUN","Roll":29,"Class":"EIGHT (B)","TotalScore":426,"GPA":"C (2.93)","Failed":0,"Group":"-" },
+  { "Merit":18,"Name":"MST. SANJIDA KHATUN","Roll":33,"Class":"EIGHT (B)","TotalScore":368,"GPA":"C (2.64)","Failed":0,"Group":"-" },
+  { "Merit":19,"Name":"MST. SHATI KHATUN","Roll":34,"Class":"EIGHT (B)","TotalScore":365,"GPA":"C (2.64)","Failed":0,"Group":"-" },
+  { "Merit":20,"Name":"MST. JAKIYA KHATUN","Roll":16,"Class":"EIGHT (B)","TotalScore":395,"GPA":"F (0.0)","Failed":1,"Group":"-" },
+  { "Merit":21,"Name":"MST. NARGIS KHATUN","Roll":17,"Class":"EIGHT (B)","TotalScore":393,"GPA":"F (0.0)","Failed":1,"Group":"-" },
+  { "Merit":22,"Name":"MST. ANTORA KHATUN","Roll":30,"Class":"EIGHT (B)","TotalScore":369,"GPA":"F (0.0)","Failed":1,"Group":"-" },
+  { "Merit":23,"Name":"MST. SAMIA SULTANA","Roll":19,"Class":"EIGHT (B)","TotalScore":350,"GPA":"F (0.0)","Failed":1,"Group":"-" },
+  { "Merit":24,"Name":"MST. SADIYA KHATUN","Roll":24,"Class":"EIGHT (B)","TotalScore":350,"GPA":"F (0.0)","Failed":1,"Group":"-" },
+  { "Merit":25,"Name":"MST. JAKIA SULTANA","Roll":21,"Class":"EIGHT (B)","TotalScore":344,"GPA":"F (0.0)","Failed":1,"Group":"-" },
+  { "Merit":26,"Name":"MST. LUCKY KHATUN","Roll":18,"Class":"EIGHT (B)","TotalScore":325,"GPA":"F (0.0)","Failed":2,"Group":"-" },
+  { "Merit":27,"Name":"NUSRAT SARKER IFTY","Roll":27,"Class":"EIGHT (B)","TotalScore":318,"GPA":"F (0.0)","Failed":2,"Group":"-" },
+  { "Merit":28,"Name":"MST. JIM KHATUN","Roll":28,"Class":"EIGHT (B)","TotalScore":308,"GPA":"F (0.0)","Failed":2,"Group":"-" },
+  { "Merit":29,"Name":"MST. SADIYA KHATUN","Roll":25,"Class":"EIGHT (B)","TotalScore":306,"GPA":"F (0.0)","Failed":2,"Group":"-" },
+  { "Merit":30,"Name":"MST. JULIYA KHATUN","Roll":26,"Class":"EIGHT (B)","TotalScore":263,"GPA":"F (0.0)","Failed":3,"Group":"-" },
+  { "Merit":31,"Name":"MST. SADIYA KHATUN","Roll":42,"Class":"EIGHT (B)","TotalScore":226,"GPA":"F (0.0)","Failed":4,"Group":"-" },
+  { "Merit":32,"Name":"MST. KOBITA KHATUN","Roll":39,"Class":"EIGHT (B)","TotalScore":183,"GPA":"F (0.0)","Failed":4,"Group":"-" },
+  { "Merit":33,"Name":"MST. KHADIJA KHATUN","Roll":37,"Class":"EIGHT (B)","TotalScore":182,"GPA":"F (0.0)","Failed":5,"Group":"-" },
+  { "Merit":34,"Name":"MST. SUBARNA PARVIN","Roll":36,"Class":"EIGHT (B)","TotalScore":175,"GPA":"F (0.0)","Failed":6,"Group":"-" },
+  { "Merit":35,"Name":"MST SHATI KHATUN","Roll":45,"Class":"EIGHT (B)","TotalScore":165,"GPA":"F (0.0)","Failed":5,"Group":"-" },
+  { "Merit":36,"Name":"MST. ITI KHATUN","Roll":38,"Class":"EIGHT (B)","TotalScore":131,"GPA":"F (0.0)","Failed":6,"Group":"-" },
+
+  {"Merit":1,"Name":"MD. RASADUL ISLAM","Roll":3,"Class":"EIGHT (A)","TotalScore":512,"GPA":"A- (3.93)","Failed":0,"Group":"-"},
+  {"Merit":2,"Name":"MD. SAJIDUL ISLAM SOWAD","Roll":1,"Class":"EIGHT (A)","TotalScore":486,"GPA":"A- (3.71)","Failed":0,"Group":"-"},
+  {"Merit":3,"Name":"MD. RIFAT HOSSEN","Roll":4,"Class":"EIGHT (A)","TotalScore":463,"GPA":"B (3.43)","Failed":0,"Group":"-"},
+  {"Merit":4,"Name":"MD. NAHID ISLAM NIROB","Roll":2,"Class":"EIGHT (A)","TotalScore":437,"GPA":"B (3.21)","Failed":0,"Group":"-"},
+  {"Merit":5,"Name":"MD. ALIF MOLLA","Roll":5,"Class":"EIGHT (A)","TotalScore":413,"GPA":"B (3.14)","Failed":0,"Group":"-"},
+  {"Merit":6,"Name":"MD. ABDULLAH HOSSEN","Roll":10,"Class":"EIGHT (A)","TotalScore":411,"GPA":"B (3.14)","Failed":0,"Group":"-"},
+  {"Merit":7,"Name":"MD. MAHFUJUR RAHMAN","Roll":9,"Class":"EIGHT (A)","TotalScore":404,"GPA":"B (3.0)","Failed":0,"Group":"-"},
+  {"Merit":8,"Name":"MD. RONY HOSSEN","Roll":8,"Class":"EIGHT (A)","TotalScore":366,"GPA":"F (0.0)","Failed":1,"Group":"-"},
+  {"Merit":9,"Name":"MD. NAHID ISLAM","Roll":11,"Class":"EIGHT (A)","TotalScore":357,"GPA":"F (0.0)","Failed":1,"Group":"-"},
+  {"Merit":10,"Name":"MD. SOBUJ MIA","Roll":6,"Class":"EIGHT (A)","TotalScore":343,"GPA":"F (0.0)","Failed":2,"Group":"-"},
+  {"Merit":11,"Name":"MD. AKASH MAHMUD","Roll":12,"Class":"EIGHT (A)","TotalScore":329,"GPA":"F (0.0)","Failed":1,"Group":"-"},
+  {"Merit":12,"Name":"MD. SHIHAB HOSSEN","Roll":20,"Class":"EIGHT (A)","TotalScore":319,"GPA":"F (0.0)","Failed":2,"Group":"-"},
+  {"Merit":13,"Name":"MD. SHAMSUL ALAM","Roll":23,"Class":"EIGHT (A)","TotalScore":285,"GPA":"F (0.0)","Failed":3,"Group":"-"},
+  {"Merit":14,"Name":"MD. MOSTAK AHMED","Roll":15,"Class":"EIGHT (A)","TotalScore":279,"GPA":"F (0.0)","Failed":3,"Group":"-"},
+  {"Merit":15,"Name":"MD. NAJMUL HOSSEN","Roll":13,"Class":"EIGHT (A)","TotalScore":257,"GPA":"F (0.0)","Failed":4,"Group":"-"},
+  {"Merit":16,"Name":"MD. SHAKIB HASAN","Roll":22,"Class":"EIGHT (A)","TotalScore":245,"GPA":"F (0.0)","Failed":4,"Group":"-"},
+  {"Merit":17,"Name":"MD. JIHAD ALI","Roll":28,"Class":"EIGHT (A)","TotalScore":225,"GPA":"F (0.0)","Failed":5,"Group":"-"},
+  {"Merit":18,"Name":"MD. KAMRIL ISLAM","Roll":19,"Class":"EIGHT (A)","TotalScore":219,"GPA":"F (0.0)","Failed":5,"Group":"-"},
+  {"Merit":19,"Name":"MD. SABBIR HOSSEN","Roll":29,"Class":"EIGHT (A)","TotalScore":199,"GPA":"F (0.0)","Failed":6,"Group":"-"},
+  {"Merit":20,"Name":"MD. JAFOR ALI","Roll":14,"Class":"EIGHT (A)","TotalScore":197,"GPA":"F (0.0)","Failed":5,"Group":"-"},
+  {"Merit":21,"Name":"MD. SAGOR ALI","Roll":25,"Class":"EIGHT (A)","TotalScore":191,"GPA":"F (0.0)","Failed":5,"Group":"-"},
+  {"Merit":22,"Name":"MD RIYAD HOSSAIN","Roll":24,"Class":"EIGHT (A)","TotalScore":182,"GPA":"F (0.0)","Failed":5,"Group":"-"},
+  {"Merit":23,"Name":"MD. HABIB HOSSEN","Roll":21,"Class":"EIGHT (A)","TotalScore":167,"GPA":"F (0.0)","Failed":6,"Group":"-"}
 ];
 </script>
 
 
-<!-- ================== Search Script ===================== -->
+<!-- ============ Search Script ============= -->
 <script>
 function searchByRoll(){
   const rollInput=document.getElementById("searchInput").value.trim();
